@@ -1,0 +1,25 @@
+[package]
+name = "ibcx-test-utils"
+version = "0.1.1"
+authors = ["ByeongSu Hong <hong@byeongsu.dev>"]
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/many-things/ibcx-test-utils"
+description = "Test utils for ibcx"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for more explicit tests, cargo test --features=backtraces
+backtraces = ["cosmwasm-std/backtraces"]
+# use library feature to disable all instantiate/execute/query exports
+library = []
+
+[dependencies]
+osmosis-std = { version = "0.19.2" }
+osmosis-test-tube = { version = "19.2.0" }
+cosmwasm-std = { version = "1.4.0", features = ["stargate"] }
+
+serde_json = { version = "1.0.107" }
+anyhow = { version = "1.0.72" }
