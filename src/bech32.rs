@@ -1,6 +1,7 @@
 use bech32::{FromBase32, ToBase32};
 use cosmwasm_std::{Addr, StdError, StdResult};
 
+#[allow(unused)]
 pub(crate) fn bech32_to_h256(target: &str) -> StdResult<[u8; 32]> {
     let raw_addr = bech32_decode(target)?;
 
@@ -20,6 +21,7 @@ pub(crate) fn bech32_decode(target: &str) -> StdResult<Vec<u8>> {
     Ok(raw_addr)
 }
 
+#[allow(unused)]
 pub(crate) fn bech32_encode(hrp: &str, raw_addr: &[u8]) -> StdResult<Addr> {
     if raw_addr.len() != 32 && raw_addr.len() != 20 {
         return Err(StdError::generic_err(format!(
