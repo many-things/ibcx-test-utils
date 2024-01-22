@@ -37,7 +37,7 @@ impl App {
                 store_resp.data.code_id,
                 &Empty {},
                 None,
-                None,
+                Some("test-querier"),
                 &[],
                 &deployer,
             )
